@@ -10,3 +10,11 @@ jobs:
         run: npm install
       - name: Run cypress tests
         run: npx cypress run
+      - name: Get test reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cypress-test-reports
+          path: |
+            cypress/reports/
+            cypress/screenshots/
